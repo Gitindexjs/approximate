@@ -1,6 +1,6 @@
 let grid = []
-let sides = [[], []]
-let total = 5;
+let sides = [[[1, 1], [1], [1]], [[1, 2, 1]]]
+let total = 3;
 
 function fillGrid() {
     for(let i = 0; i < total; i++) {
@@ -20,11 +20,10 @@ function fillSides() {
 
 function sumLine(l) {
     let sum = 0;
-    
-    for(let i = 0; i < sides[l[0]][l[1]].length; i++) {
-        sum+=sides[l[0]][l[1]][i]
+    for(let i = 0; i < l.length; i++) {
+        sum+=l[i]
     }
-    return sum+sides[i][j].length - 1;
+    return sum+l.length - 1;
 }
 
 
@@ -53,7 +52,7 @@ function fillIntersections() {
 
 function error(l) {
     if(grid[l[0]][l[1]] !== 0) {
-        console.log("there has been an overloaded element.")
+        console.log("there has been an overloaded position.")
     }
 }
 
@@ -150,3 +149,7 @@ function fillTrivial() {
 
 fillGrid();
 fillSides();
+
+fillTrivial();
+
+console.log(grid)
